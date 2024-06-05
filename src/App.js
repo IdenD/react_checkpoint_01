@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import {Card, Col, Container, Row} from 'react-bootstrap';
+import Name from './composants/Name';
+import Image from './composants/Image';
+import Description from './composants/Description';
+import Price from './composants/Price';
+
+const nom = 'EDAN';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container className='Container'>
+        <Row className='Row'>
+          <Col lg={4}>
+            <Card style={{ width: '18rem' }}>
+              <Image />
+                <Card.Body>
+                  <Name />
+                  <Description />
+                  <Price />
+                 
+                </Card.Body>
+            </Card>
+          </Col>
+          <NomAffiche />
+        </Row> 
+      </Container> 
+     
+    </>
   );
 }
+
+function NomAffiche () {
+    return ( 
+      <div>
+        <p>Bonjour {nom && `${nom}`}</p>
+      </div>
+  )
+}
+
+
 
 export default App;
